@@ -1,8 +1,11 @@
 const express = require('express');
 const app = express();
-const { serverConfig } = require('./config')
-const apiRoutes = require('./routes')
+const { serverConfig } = require('./config');
+const apiRoutes = require('./routes');
 
+
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 
 app.use('/api', apiRoutes)
 
