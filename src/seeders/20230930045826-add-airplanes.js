@@ -12,8 +12,26 @@ module.exports = {
         updatedAt: new Date()
       },
       {
-        modelNumber: 'boeing777',
-        capacity: 450,
+        modelNumber: 'airbusA380',
+        capacity: 853,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },  
+      {
+        modelNumber: 'boeing787',
+        capacity: 330,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        modelNumber: 'airbusA320',
+        capacity: 220,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        modelNumber: 'embraerE190',
+        capacity: 114,
         createdAt: new Date(),
         updatedAt: new Date()
       }
