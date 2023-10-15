@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { AirplaneController } = require('../../controllers');
-const { AirplaneMiddlewares } = require('../../middlewares');
+const { AirplaneMiddlewares, UniversalMiddlewares } = require('../../middlewares');
 
 // /api/v1/airplanes POST
 router.post('/', 
@@ -22,6 +22,7 @@ router.delete('/:id',
 
 // /api/v1/airplanes / Patch 
 router.patch('/:id', 
+        UniversalMiddlewares.noIdInRequestPayload,
         AirplaneMiddlewares.validateUpdateRequest,
         AirplaneController.updateAirplane
 )

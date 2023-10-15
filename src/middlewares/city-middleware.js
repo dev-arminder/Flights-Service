@@ -14,7 +14,19 @@ function validateCreateRequest(req, res, next) {
     next();
 }
 
+function validateUpdateRequest(req, res, next) {    
+    if(!req.body.name) {
+        ErrorResponse.message = 'Something went wrong while updating City';
+        ErrorResponse.error = new AppError(['You can only update name of City'], StatusCodes.BAD_REQUEST);
+        return res
+                .status(StatusCodes.BAD_REQUEST)
+                .json(ErrorResponse);
+    } 
+    next();
+}
+
 
 module.exports = {
-    validateCreateRequest
+    validateCreateRequest, 
+    validateUpdateRequest
 }

@@ -87,7 +87,6 @@ async function destroyAirplane(req, res) {
  */
 async function updateAirplane(req, res) {
   try {
-      console.log(req.body)
       const airplanes = await AirplaneService.updateAirplane(req.params.id, req.body);
       SuccessResponse.data = airplanes;
       return res
