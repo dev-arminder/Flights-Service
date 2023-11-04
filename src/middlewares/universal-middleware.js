@@ -5,7 +5,6 @@ const AppError = require('../utils/errors/app-error');
 
 function noIdInRequestPayload(req, res, next) {
     if(req.body.id) {
-        ErrorResponse.message = 'You Can not update id of any resource';
         ErrorResponse.error = new AppError(['You Can not update id of any resource'], StatusCodes.BAD_REQUEST);
         return res
                 .status(StatusCodes.BAD_REQUEST)

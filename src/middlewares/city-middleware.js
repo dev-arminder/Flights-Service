@@ -5,7 +5,6 @@ const AppError = require('../utils/errors/app-error');
 
 function validateCreateRequest(req, res, next) {
     if(!req.body.name) {
-        ErrorResponse.message = 'Something went wrong while creating city';
         ErrorResponse.error = new AppError(['City name not found in the incoming request in the correct form'], StatusCodes.BAD_REQUEST);
         return res
                 .status(StatusCodes.BAD_REQUEST)
@@ -16,7 +15,6 @@ function validateCreateRequest(req, res, next) {
 
 function validateUpdateRequest(req, res, next) {    
     if(!req.body.name) {
-        ErrorResponse.message = 'Something went wrong while updating City';
         ErrorResponse.error = new AppError(['You can only update name of City'], StatusCodes.BAD_REQUEST);
         return res
                 .status(StatusCodes.BAD_REQUEST)
