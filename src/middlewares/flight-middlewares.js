@@ -29,6 +29,14 @@ function validateCreateRequest(req, res, next) {
                 .status(StatusCodes.BAD_REQUEST)
                 .json(ErrorResponse);
     }
+
+    if(req.body.arrivalAirportId === req.body.departureAirportId) {
+        ErrorResponse.error = new AppError(['departureAirportId and arrivalAirportId can not be same'], StatusCodes.BAD_REQUEST);
+        return res
+                .status(StatusCodes.BAD_REQUEST)
+                .json(ErrorResponse);
+    }
+    
     if(!req.body.arrivalTime) {
         ErrorResponse.error = new AppError(['arrivalTime not found in the oncoming request in the correct form'], StatusCodes.BAD_REQUEST);
         return res
